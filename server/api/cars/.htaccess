@@ -1,12 +1,12 @@
-#DirectoryIndex index.php
+##DirectoryIndex index.php
 RewriteEngine On
-RewriteBase /~user6/REST/server/api/cars
+RewriteBase /~user6/REST/server/api/cars/
 #RewriteBase /server/api/cars
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ index.php
-#DirectoryIndex index.php
+DirectoryIndex index.php
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteCond %{REQUEST_FILENAME} !-s
