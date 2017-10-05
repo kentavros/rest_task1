@@ -10,20 +10,29 @@ class Cars extends RestServer
     public function getCars($data = false)
     {
         //TODO: if data=false get all cars
-        //if isset id - get detail cars by id
-        return '<br>Hello! Params = 1.'.$data[0].' 2.'.$data[1];
+        //TODO: if isset id - get detail cars by id
+        //todo: if isset $this->encode - zaincodit v format funkciei
+        $data = $this->encodedData($data);
+        return '<br>Hello! '.var_dump($data);
+//        return '<br>Hello! '.var_dump($this->params);
 
     }
 
     public function postCars()
     {
         //TODO: add data to db
-        return ' The Post method postCars'.$_POST['id'];
+        return ' The Post method postCars'.var_dump($this->params);
     }
 
     public function putCars($data = false)
     {
-        echo 'PUTeprst '.$_POST['put'];
+        return var_dump($this->params).'PUTeprst ';
+    }
+
+    public function deleteCars()
+    {
+        //todo: if empty data - return msg - input data
+        return 'Deleted ..'.var_dump($this->params);
     }
 }
 $cars = new Cars();
