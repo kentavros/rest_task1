@@ -99,7 +99,7 @@ class RestServer
         }
     }
 
-    protected function .encodedData($data)
+    protected function encodedData($data)
     {
         switch ($this->encode)
         {
@@ -111,8 +111,19 @@ class RestServer
                 return print_r($data); 
                 break;
             case '.html':
-                
+                header('Content-Type: text/html; charset=utf-8');
+                $str = '<head></head>';
+                $str .= '<body>';
+                if (is_array($data))
+                {
+                    foreach($data as $key => $val)
+                    {
+                        $str .= '<p>'.$key.' => '.$val.'</p>';
+                    }
+                    $str .= '</body>';  
+                }
                 //return 'HTML';
+                return $str;
                 break;
             case '.xml':
                 header("Content-type: text/xml");
