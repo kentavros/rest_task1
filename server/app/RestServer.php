@@ -32,7 +32,7 @@ class RestServer
     {
         if(method_exists($this, $classMethod))
         {
-            echo $this->$classMethod($data);
+           echo $this->$classMethod($data);
         }
         else
         {
@@ -99,7 +99,7 @@ class RestServer
         }
     }
 
-    protected function encodedData($data)
+    protected function .encodedData($data)
     {
         switch ($this->encode)
         {
@@ -107,13 +107,24 @@ class RestServer
                 return json_encode($data);
                 break;
             case '.txt':
-                return 'TXT';
+                header("Content-type: text/javascript");
+                return print_r($data); 
                 break;
             case '.html':
-                return 'HTML';
+                
+                //return 'HTML';
                 break;
             case '.xml':
-                return 'XML';
+                header("Content-type: text/xml");
+                $xml = new SimpleXMLElement('<root/>');
+                //foreach ($data as $car)
+                //{
+                //$data =  array_flip($car); 
+               // array_walk_recursive($data, array ($xml, 'addChild'));
+                // }
+                $data = array_flip($data);
+                array_walk_recursive($data, array($xml, 'addChild'));
+                return $xml->asXML();
                 break;
             default:
                 return json_encode($data);

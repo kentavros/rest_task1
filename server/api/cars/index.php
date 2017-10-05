@@ -12,10 +12,9 @@ class Cars extends RestServer
         //TODO: if data=false get all cars
         //TODO: if isset id - get detail cars by id
         //todo: if isset $this->encode - zaincodit v format funkciei
+        //var_dump($data);
         $data = $this->encodedData($data);
-        return '<br>Hello! '.var_dump($data);
-//        return '<br>Hello! '.var_dump($this->params);
-
+        return $data;
     }
 
     public function postCars($data)
