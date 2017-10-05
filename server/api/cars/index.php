@@ -18,21 +18,21 @@ class Cars extends RestServer
 
     }
 
-    public function postCars()
+    public function postCars($data)
     {
         //TODO: add data to db
-        return ' The Post method postCars'.var_dump($this->params);
+        return ' The Post method postCars '.var_dump($data);
     }
 
-    public function putCars($data = false)
+    public function putCars($data)
     {
-        return var_dump($this->params).'PUTeprst ';
+        return var_dump($data).'PUTeprst ';
     }
 
-    public function deleteCars()
+    public function deleteCars($data)
     {
         //todo: if empty data - return msg - input data
-        return 'Deleted ..'.var_dump($this->params);
+        return 'Deleted ..'.var_dump($data);
     }
 }
 $cars = new Cars();
