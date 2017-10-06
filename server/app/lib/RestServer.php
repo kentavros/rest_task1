@@ -36,6 +36,7 @@ class RestServer
         }
         else
         {
+            var_dump($classMethod);
             echo 'ERROR!';
         }
     }
@@ -70,6 +71,10 @@ class RestServer
                 $id = (int)$data[count($data) - 1];
                 $data = [];
                 $data['id'] = $id;
+                if ($data['id'] === 0)
+                {
+                    $data = false;
+                }
             } else {
                 //4etnoe
                 $arrEven = [];
@@ -93,6 +98,7 @@ class RestServer
         }
         elseif ($this->reqMethod == 'PUT')
         {
+//            $this->data = parse_str(file_get_contents("php://input"), $putParams);
             parse_str(file_get_contents("php://input"), $putParams);
             $this->data = $putParams;
             return $this->data;
@@ -104,41 +110,58 @@ class RestServer
         switch ($this->encode)
         {
             case '.json':
+                header('Content-Type: application/json');
                 return json_encode($data);
                 break;
             case '.txt':
                 header("Content-type: text/javascript");
-                var_dump($data);
                 print_r($data);
                 break;
             case '.html':
                 header('Content-Type: text/html; charset=utf-8');
                 $str = '<head></head>';
                 $str .= '<body>';
-                if (is_array($data))
+                if (count($data,1) != count($data))
+                {
+                    foreach ($data as $values)
+                    {
+                        foreach($values as $key => $val)
+                        {
+                            $str .= '<p>'.$key.' => '.$val.'</p>';
+                        }
+                        $str .= '</body>';
+                    }
+                }
+                else
                 {
                     foreach($data as $key => $val)
                     {
                         $str .= '<p>'.$key.' => '.$val.'</p>';
                     }
-                    $str .= '</body>';  
+                    $str .= '</body>';
                 }
-                //return 'HTML';
                 return $str;
                 break;
             case '.xml':
                 header("Content-type: text/xml");
-                $xml = new SimpleXMLElement('<root/>');
-                //foreach ($data as $car)
-                //{
-                //$data =  array_flip($car); 
-               // array_walk_recursive($data, array ($xml, 'addChild'));
-                // }
-                $data = array_flip($data);
-                array_walk_recursive($data, array($xml, 'addChild'));
+                $xml = new SimpleXMLElement('<cars/>');
+                if (count($data,1) != count($data))
+                {
+                    foreach ($data as $car)
+                    {
+                        $data =  array_flip($car);
+                        array_walk_recursive($data, array ($xml, 'addChild'));
+                    }
+                }
+                else
+                {
+                    $data = array_flip($data);
+                    array_walk_recursive($data, array($xml, 'addChild'));
+                }
                 return $xml->asXML();
                 break;
             default:
+                header('Content-Type: application/json');
                 return json_encode($data);
         }
     }

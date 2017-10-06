@@ -1,6 +1,6 @@
 <?php
 include '../../app/lib/function.php';
-class Cars extends RestServer
+class Users extends RestServer
 {
     private $model;
 
@@ -11,32 +11,33 @@ class Cars extends RestServer
      */
     public function __construct()
     {
-        $this->model = new ModelCars();
+//        $this->model = new ModelCars();
         $this->run();
     }
 
-    public function getCars($data)
+    public function getUsers($data)
     {
-        $result = $this->model->getCars($data);
-        $result = $this->encodedData($result);
+        $result = 5;
+//        $result = $this->model->getCars($data);
+//        $result = $this->encodedData($result);
         return $result;
     }
 
-    public function postCars($data)
+    public function postUsers($data)
     {
 //        //TODO: add data to db
 //        return ' The Post method postCars '.var_dump($data);
     }
 
-    public function putCars($data)
+    public function putUsers($data)
     {
 //        return var_dump($data).'PUTeprst ';
     }
 
-    public function deleteCars($data)
+    public function deleteUsers($data)
     {
 //        //todo: if empty data - return msg - input data
 //        return 'Deleted ..'.var_dump($data);
     }
 }
-$cars = new Cars();
+$cars = new Users();
