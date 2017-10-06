@@ -32,11 +32,12 @@ class RestServer
     {
         if(method_exists($this, $classMethod))
         {
-           echo $this->$classMethod($data);
+            echo $this->$classMethod($data);
+            //var_dump($classMethod);
         }
         else
         {
-            var_dump($classMethod);
+            //var_dump($classMethod);
             echo 'ERROR!';
         }
     }

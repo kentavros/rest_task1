@@ -11,22 +11,25 @@ class Users extends RestServer
      */
     public function __construct()
     {
-//        $this->model = new ModelCars();
+        $this->model = new ModelUsers();
         $this->run();
     }
 
     public function getUsers($data)
     {
-        $result = 5;
+        ///$result = 5;
 //        $result = $this->model->getCars($data);
 //        $result = $this->encodedData($result);
-        return $result;
+        
     }
 
     public function postUsers($data)
     {
 //        //TODO: add data to db
-//        return ' The Post method postCars '.var_dump($data);
+        //        return ' The Post method postCars '.var_dump($data);
+        // echo 'POST user'.var_dump($data);
+        $foo = $this->model->addUser($data);
+        return $foo;
     }
 
     public function putUsers($data)

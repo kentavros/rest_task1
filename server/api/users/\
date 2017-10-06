@@ -24,9 +24,8 @@ class ModelUsers
         echo $login;
         $pass = $this->pdo->quote($param['pass']);
         echo $pass;
-            $hash = $this->pdo->quote('firstHash');
-            $sql = "INSERT INTO users (login, pass, hash) VALUES (".$login.", ".$pass.", ".$hash.")";
-            echo $sql;
+            $hash = 'firstHash';
+        $sql = "INSERT INTO users (login, pass, hash) VALUES (".$login.", ".$pass.", ".$hash.")";
         $count = $this->pdo->exec($sql);
         return $count;
     }
