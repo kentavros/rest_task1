@@ -108,7 +108,8 @@ class RestServer
                 break;
             case '.txt':
                 header("Content-type: text/javascript");
-                return print_r($data); 
+                var_dump($data);
+                print_r($data);
                 break;
             case '.html':
                 header('Content-Type: text/html; charset=utf-8');
