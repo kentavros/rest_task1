@@ -6,7 +6,7 @@ class Users extends RestServer
 
     /**
      * create obj - model
-     * parent run method
+     * run parent method
      * Cars constructor.
      */
     public function __construct()
@@ -17,30 +17,34 @@ class Users extends RestServer
 
     public function getUsers($data)
     {
-        ///$result = 5;
-//        $result = $this->model->getCars($data);
-//        $result = $this->encodedData($result);
-        
+        return $this->model->checkUsers();
     }
 
+    /**
+     * Registretion - add user to DB
+     * @param $data
+     * @return int or bool
+     */
     public function postUsers($data)
     {
-//        //TODO: add data to db
-        //        return ' The Post method postCars '.var_dump($data);
-        // echo 'POST user'.var_dump($data);
-        $foo = $this->model->addUser($data);
-        return $foo;
+        $result = $this->model->addUser($data);
+        return $result;
     }
 
+    /**
+     * Login user - add hash to db and set cookie id and hash
+     * @param $data
+     * @return bool
+     */
     public function putUsers($data)
     {
-//        return var_dump($data).'PUTeprst ';
+        $result = $this->model->loginUser($data);
+        return $result;
     }
 
     public function deleteUsers($data)
     {
-//        //todo: if empty data - return msg - input data
-//        return 'Deleted ..'.var_dump($data);
+        //TODO :: loguot
     }
 }
 $cars = new Users();
