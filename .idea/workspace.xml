@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="51e32920-cffc-4b99-9378-919e1557d4d6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/api/.htaccess" afterPath="$PROJECT_DIR$/client/api/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/cars/.htaccess" afterPath="$PROJECT_DIR$/server/api/cars/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/users/.htaccess" afterPath="$PROJECT_DIR$/server/api/users/.htaccess" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/users/index.php" afterPath="$PROJECT_DIR$/server/api/users/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/app/lib/config.php" afterPath="$PROJECT_DIR$/server/app/lib/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/app/models/ModelUsers.php" afterPath="$PROJECT_DIR$/server/app/models/ModelUsers.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,28 +16,28 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/api/users/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+            <state relative-caret-position="884">
+              <caret line="52" column="23" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModelUsers.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModelUsers.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/app/models/ModelUsers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="52" />
+            <state relative-caret-position="471">
+              <caret line="106" column="21" lean-forward="false" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
               <folding>
-                <marker date="1507406792256" expanded="true" signature="451:483" ph="SELECT hash users" />
-                <marker date="1507406792256" expanded="true" signature="1432:1471" ph="SELECT id, p... users" />
-                <marker date="1507406792256" expanded="true" signature="2240:2262" ph="UPDATE users... " />
-                <marker date="1507406792256" expanded="true" signature="2240:2281" ph="UPDATE users... " />
-                <marker date="1507406792256" expanded="true" signature="2240:2282" ph="UPDATE users... " />
-                <marker date="1507406792256" expanded="true" signature="3324:3403" ph="INSERT INTO users... " />
+                <marker date="1507407991382" expanded="true" signature="451:483" ph="SELECT hash users" />
+                <marker date="1507407991382" expanded="true" signature="1494:1533" ph="SELECT id, p... users" />
+                <marker date="1507407991382" expanded="true" signature="2302:2324" ph="UPDATE users... " />
+                <marker date="1507407991382" expanded="true" signature="2302:2343" ph="UPDATE users... " />
+                <marker date="1507407991382" expanded="true" signature="2302:2344" ph="UPDATE users... " />
+                <marker date="1507407991382" expanded="true" signature="3647:3726" ph="INSERT INTO users... " />
               </folding>
             </state>
           </provider>
@@ -60,7 +56,7 @@
       <file leaf-file-name="RestServer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/app/lib/RestServer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="119">
               <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
               <folding />
             </state>
@@ -86,8 +82,8 @@
         <option value="$PROJECT_DIR$/server/api/users/.htaccess" />
         <option value="$PROJECT_DIR$/client/api/.htaccess" />
         <option value="$PROJECT_DIR$/server/app/lib/config.php" />
-        <option value="$PROJECT_DIR$/server/api/users/index.php" />
         <option value="$PROJECT_DIR$/server/app/models/ModelUsers.php" />
+        <option value="$PROJECT_DIR$/server/api/users/index.php" />
       </list>
     </option>
   </component>
@@ -101,7 +97,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="247" />
     <option name="y" value="17" />
-    <option name="width" value="948" />
+    <option name="width" value="1062" />
     <option name="height" value="737" />
   </component>
   <component name="ProjectView">
@@ -341,18 +337,18 @@
       <workItem from="1507185001104" duration="18128000" />
       <workItem from="1507270786140" duration="19680000" />
       <workItem from="1507390735618" duration="794000" />
-      <workItem from="1507393756625" duration="10321000" />
+      <workItem from="1507393756625" duration="11290000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48923000" />
+    <option name="totallyTimeSpent" value="49892000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="247" y="17" width="948" height="737" extended-state="0" />
+    <frame x="247" y="17" width="1062" height="737" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21137339" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18833652" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -397,12 +393,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding>
-            <marker date="1507406792256" expanded="true" signature="451:483" ph="SELECT hash users" />
-            <marker date="1507406792256" expanded="true" signature="1432:1471" ph="SELECT id, p... users" />
-            <marker date="1507406792256" expanded="true" signature="2240:2262" ph="UPDATE users... " />
-            <marker date="1507406792256" expanded="true" signature="2240:2281" ph="UPDATE users... " />
-            <marker date="1507406792256" expanded="true" signature="2240:2282" ph="UPDATE users... " />
-            <marker date="1507406792256" expanded="true" signature="3324:3403" ph="INSERT INTO users... " />
+            <marker date="1507407991382" expanded="true" signature="451:483" ph="SELECT hash users" />
+            <marker date="1507407991382" expanded="true" signature="1494:1533" ph="SELECT id, p... users" />
+            <marker date="1507407991382" expanded="true" signature="2302:2324" ph="UPDATE users... " />
+            <marker date="1507407991382" expanded="true" signature="2302:2343" ph="UPDATE users... " />
+            <marker date="1507407991382" expanded="true" signature="2302:2344" ph="UPDATE users... " />
+            <marker date="1507407991382" expanded="true" signature="3647:3726" ph="INSERT INTO users... " />
           </folding>
         </state>
       </provider>
@@ -442,12 +438,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding>
-            <marker date="1507406792256" expanded="true" signature="451:483" ph="SELECT hash users" />
-            <marker date="1507406792256" expanded="true" signature="1432:1471" ph="SELECT id, p... users" />
-            <marker date="1507406792256" expanded="true" signature="2240:2262" ph="UPDATE users... " />
-            <marker date="1507406792256" expanded="true" signature="2240:2281" ph="UPDATE users... " />
-            <marker date="1507406792256" expanded="true" signature="2240:2282" ph="UPDATE users... " />
-            <marker date="1507406792256" expanded="true" signature="3324:3403" ph="INSERT INTO users... " />
+            <marker date="1507407991382" expanded="true" signature="451:483" ph="SELECT hash users" />
+            <marker date="1507407991382" expanded="true" signature="1494:1533" ph="SELECT id, p... users" />
+            <marker date="1507407991382" expanded="true" signature="2302:2324" ph="UPDATE users... " />
+            <marker date="1507407991382" expanded="true" signature="2302:2343" ph="UPDATE users... " />
+            <marker date="1507407991382" expanded="true" signature="2302:2344" ph="UPDATE users... " />
+            <marker date="1507407991382" expanded="true" signature="3647:3726" ph="INSERT INTO users... " />
           </folding>
         </state>
       </provider>
@@ -538,14 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/app/lib/RestServer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/app/lib/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -554,26 +542,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/api/users/index.php">
+    <entry file="file://$PROJECT_DIR$/server/app/lib/RestServer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        <state relative-caret-position="119">
+          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/app/models/ModelUsers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="52" />
+        <state relative-caret-position="471">
+          <caret line="106" column="21" lean-forward="false" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
           <folding>
-            <marker date="1507406792256" expanded="true" signature="451:483" ph="SELECT hash users" />
-            <marker date="1507406792256" expanded="true" signature="1432:1471" ph="SELECT id, p... users" />
-            <marker date="1507406792256" expanded="true" signature="2240:2262" ph="UPDATE users... " />
-            <marker date="1507406792256" expanded="true" signature="2240:2281" ph="UPDATE users... " />
-            <marker date="1507406792256" expanded="true" signature="2240:2282" ph="UPDATE users... " />
-            <marker date="1507406792256" expanded="true" signature="3324:3403" ph="INSERT INTO users... " />
+            <marker date="1507407991382" expanded="true" signature="451:483" ph="SELECT hash users" />
+            <marker date="1507407991382" expanded="true" signature="1494:1533" ph="SELECT id, p... users" />
+            <marker date="1507407991382" expanded="true" signature="2302:2324" ph="UPDATE users... " />
+            <marker date="1507407991382" expanded="true" signature="2302:2343" ph="UPDATE users... " />
+            <marker date="1507407991382" expanded="true" signature="2302:2344" ph="UPDATE users... " />
+            <marker date="1507407991382" expanded="true" signature="3647:3726" ph="INSERT INTO users... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/api/users/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="23" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>

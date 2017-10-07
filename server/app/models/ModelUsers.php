@@ -41,11 +41,16 @@ class ModelUsers
         }
         else
         {
-            echo 'TODO - No cookies - you need to log in to the user';
+            echo 'TODO - No cookies - you need to login';
             return false;
         }
     }
 
+    /**
+     * Login user
+     * @param $param
+     * @return bool
+     */
     public function loginUser($param)
     {
         $pass = md5(md5(trim($param['pass'])));
@@ -88,9 +93,18 @@ class ModelUsers
         //VOPROS PO - '/' ???
         setcookie("id", $id, time()+60*60*24*30, '/');
         setcookie("hash", $hash, time()+60*60*24*30, '/');
-
-        //TODO: HEADER 200 OK kinut'
         return true;
+    }
+
+    public function logoutUser()
+    {
+        if (isset($_COOKIE['id']) && isset($_COOKIE['hash']))
+        {
+            setcookie("id", "0", time()-3600*24*30*12, '/');
+            setcookie("hash", "0", time()-3600*24*30*12, '/');
+            return true;
+        }
+        return false;
     }
 
     /**

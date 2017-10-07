@@ -15,9 +15,14 @@ class Users extends RestServer
         $this->run();
     }
 
-    public function getUsers($data)
+    /**
+     * Check auth user - isset cookie id and hash
+     * @return bool
+     */
+    public function getUsers()
     {
-        return $this->model->checkUsers();
+        $result = $this->model->checkUsers();
+        return $result;
     }
 
     /**
@@ -42,9 +47,10 @@ class Users extends RestServer
         return $result;
     }
 
-    public function deleteUsers($data)
+    public function deleteUsers()
     {
-        //TODO :: loguot
+        $result = $this->model->logoutUser();
+        return $result;
     }
 }
 $cars = new Users();
