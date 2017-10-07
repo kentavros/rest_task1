@@ -14,10 +14,6 @@ class ModelCars
             throw new PDOException(ERR_DB);
         }
     }
-    public function test()
-    {
-        return 1;
-    }
 
     /**
      * Get all cars or by id

@@ -47,7 +47,7 @@ class ModelUsers
     }
 
     /**
-     * Login user
+     * Login user - set cookie and update hash
      * @param $param
      * @return bool
      */
@@ -125,8 +125,8 @@ class ModelUsers
         $login = $this->pdo->quote($param['login']);
         $pass = md5(md5(trim($_POST['pass'])));
         $pass = $this->pdo->quote($pass);
-            $hash = $this->pdo->quote('firstHash');
-            $sql = "INSERT INTO users (login, pass, hash) VALUES (".$login.", ".$pass.", ".$hash.")";
+        $hash = $this->pdo->quote('firstHash');
+        $sql = "INSERT INTO users (login, pass, hash) VALUES (".$login.", ".$pass.", ".$hash.")";
         $count = $this->pdo->exec($sql);
         if ($count === false)
         {
