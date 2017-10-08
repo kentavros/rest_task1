@@ -53,47 +53,48 @@ class ModelUsers
      */
     public function loginUser($param)
     {
-        $pass = md5(md5(trim($param['pass'])));
-        $login = $this->pdo->quote($param['login']);
-        $sql = "SELECT id, pass FROM users WHERE login=".$login;
-        $sth = $this->pdo->prepare($sql);
-        $result = $sth->execute();
-        if (false === $result)
-        {
-            throw new PDOException(ERR_QUERY);
-        }
-        $data = $sth->fetchAll(PDO::FETCH_ASSOC);
-        if (empty($data))
-        {
-            throw new PDOException(ERR_AUTH);
-        }
-        if (is_array($data))
-        {
-            foreach ($data as $val)
-            {
-                if ($pass !== $val['pass'])
-                {
-                    throw new PDOException(ERR_AUTH);
-                }
-                else
-                {
-                    $id = $this->pdo->quote($val['id']);
-                }
-            }
-        }
-        $hash = $this->pdo->quote(md5($this->generateHash(10)));
-        $sql = "UPDATE users SET hash=".$hash." WHERE id=".$id;
-        $count = $this->pdo->exec($sql);
-        if ($count === false)
-        {
-            throw new PDOException(ERR_USER);
-        }
-        $id = trim($id, "'");
-        $hash = trim($hash, "'");
-        //VOPROS PO - '/' ???
-        setcookie("id", $id, time()+60*60*24*30, '/');
-        setcookie("hash", $hash, time()+60*60*24*30, '/');
-        return true;
+        file_put_contents('tempp.txt', print_r($param, true));
+        return $param;
+//        $pass = md5(md5(trim($param['pass'])));
+//        $login = $this->pdo->quote($param['login']);
+//        $sql = "SELECT id, pass FROM users WHERE login=".$login;
+//        $sth = $this->pdo->prepare($sql);
+//        $result = $sth->execute();
+//        if (false === $result)
+//        {
+//            throw new PDOException(ERR_QUERY);
+//        }
+//        $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+//        if (empty($data))
+//        {
+//            throw new PDOException(ERR_AUTH);
+//        }
+//        if (is_array($data))
+//        {
+//            foreach ($data as $val)
+//            {
+//                if ($pass !== $val['pass'])
+//                {
+//                    throw new PDOException(ERR_AUTH);
+//                }
+//                else
+//                {
+//                    $id = $this->pdo->quote($val['id']);
+//                }
+//            }
+//        }
+//        $hash = $this->pdo->quote(md5($this->generateHash(10)));
+//        $sql = "UPDATE users SET hash=".$hash." WHERE id=".$id;
+//        $count = $this->pdo->exec($sql);
+//        if ($count === false)
+//        {
+//            throw new PDOException(ERR_USER);
+//        }
+//        $id = trim($id, "'");
+//        $hash = trim($hash, "'");
+//        setcookie("id", $id, time()+60*60*24*30, '/');
+//        setcookie("hash", $hash, time()+60*60*24*30, '/');
+//        return true;
     }
 
     public function logoutUser()
@@ -116,11 +117,11 @@ class ModelUsers
     {
         if(!preg_match("/^[a-zA-Z0-9]+$/",$_POST['login']))
         {
-            throw new PDOException(ERR_LOGIN_NAME);
+            return ERR_LOGIN_NAME;
         }
         if(strlen($_POST['login']) < 3 || strlen($_POST['login']) > 30)
         {
-            throw new PDOException(ERR_LOGIN_LEN);
+            return ERR_LOGIN_LEN;
         }
         $login = $this->pdo->quote($param['login']);
         $pass = md5(md5(trim($_POST['pass'])));
@@ -130,7 +131,7 @@ class ModelUsers
         $count = $this->pdo->exec($sql);
         if ($count === false)
         {
-            throw new PDOException(ERR_USER);
+            return ERR_USER;
         }
         return $count;
     }

@@ -1,0 +1,13 @@
+Array
+(
+    [------WebKitFormBoundaryNzAgDPK2KyS1tGVT
+Content-Disposition:_form-data;_name] => "login"
+
+dddddd
+------WebKitFormBoundaryNzAgDPK2KyS1tGVT
+Content-Disposition: form-data; name="pass"
+
+123456
+------WebKitFormBoundaryNzAgDPK2KyS1tGVT--
+
+)

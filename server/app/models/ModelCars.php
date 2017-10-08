@@ -18,7 +18,7 @@ class ModelCars
     /**
      * Get all cars or by id
      * @param bool $id
-     * @return array
+     * @return array|string
      */
     public function getCars($param=false)
     {
@@ -44,7 +44,7 @@ class ModelCars
         $data = $sth->fetchAll(PDO::FETCH_ASSOC);
         if (empty($data))
         {
-            throw new PDOException(ERR_SEARCH);
+            return ERR_SEARCH;
         }
         return $data;
     }

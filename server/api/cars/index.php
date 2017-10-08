@@ -3,40 +3,47 @@ include '../../app/lib/function.php';
 class Cars extends RestServer
 {
     private $model;
+    private $response;
 
     /**
-     * create obj - model
+     * create obj - model & response
      * parent run method
      * Cars constructor.
      */
     public function __construct()
     {
         $this->model = new ModelCars();
+        $this->response = new Response();
         $this->run();
     }
 
     public function getCars($data)
     {
-        $result = $this->model->getCars($data);
-        $result = $this->encodedData($result);
-        return $result;
+        try
+        {
+            $result = $this->model->getCars($data);
+            $result = $this->encodedData($result);
+            return $this->response->serverSuccess(200, $result);
+        }
+        catch (PDOException $exception)
+        {
+            return $this->response->serverError(500, $exception->getMessage());
+        }
     }
 
-    public function postCars($data)
-    {
-//        //TODO: add data to db
-//        return ' The Post method postCars '.var_dump($data);
-    }
-
-    public function putCars($data)
-    {
-//        return var_dump($data).'PUTeprst ';
-    }
-
-    public function deleteCars($data)
-    {
-//        //todo: if empty data - return msg - input data
-//        return 'Deleted ..'.var_dump($data);
-    }
+//    public function postCars($data)
+//    {
+//
+//    }
+//
+//    public function putCars($data)
+//    {
+//
+//    }
+//
+//    public function deleteCars($data)
+//    {
+//
+//    }
 }
 $cars = new Cars();

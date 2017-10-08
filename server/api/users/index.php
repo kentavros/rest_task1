@@ -3,6 +3,7 @@ include '../../app/lib/function.php';
 class Users extends RestServer
 {
     private $model;
+    private $response;
 
     /**
      * create obj - model
@@ -12,6 +13,7 @@ class Users extends RestServer
     public function __construct()
     {
         $this->model = new ModelUsers();
+        $this->response = new Response();
         $this->run();
     }
 
@@ -32,8 +34,8 @@ class Users extends RestServer
      */
     public function postUsers($data)
     {
-        $result = $this->model->addUser($data);
-        return $result;
+            $result = $this->model->addUser($data);
+            return $this->response->serverSuccess(200, $result);
     }
 
     /**
@@ -43,10 +45,18 @@ class Users extends RestServer
      */
     public function putUsers($data)
     {
+
+        header('Access-Control-Allow-Origin: *');
+        header("HTTP/1.0 200 OK");
         $result = $this->model->loginUser($data);
-        return $result;
+        return 1;
+//        return $this->response->serverSuccess(200, $result);
     }
 
+    /**
+     * Logout user
+     * @return bool
+     */
     public function deleteUsers()
     {
         $result = $this->model->logoutUser();

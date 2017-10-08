@@ -25,6 +25,12 @@ class RestServer
             case 'DELETE':
                 $this->setMethod('delete'.ucfirst($this->getClass()), $this->getData());
                 break;
+            case 'OPTIONS':
+                header('Access-Control-Allow-Methods: PUT');
+                header('Access-Control-Allow-Origin: *');
+                //header("HTTP/1.0 200 OK");
+                exit();
+                break;
         }
     }
 
@@ -33,12 +39,11 @@ class RestServer
         if(method_exists($this, $classMethod))
         {
             echo $this->$classMethod($data);
-            //var_dump($classMethod);
         }
         else
         {
-            //var_dump($classMethod);
-            echo 'ERROR!';
+            header('Access-Control-Allow-Origin: *');
+            header("HTTP/1.0 405 Method Not Allowed");
         }
     }
 
@@ -95,11 +100,11 @@ class RestServer
         elseif ($this->reqMethod == 'POST') 
         {
             $this->data = $_POST;
+//            file_put_contents('tempp.txt', print_r($_POST, true));
             return $this->data;
         }
         elseif ($this->reqMethod == 'PUT')
         {
-//            $this->data = parse_str(file_get_contents("php://input"), $putParams);
             parse_str(file_get_contents("php://input"), $putParams);
             $this->data = $putParams;
             return $this->data;
