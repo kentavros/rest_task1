@@ -46,10 +46,10 @@ class Users extends RestServer
     public function putUsers($data)
     {
 
-        header('Access-Control-Allow-Origin: *');
-        header("HTTP/1.0 200 OK");
+//        header('Access-Control-Allow-Origin: *');
+//        header("HTTP/1.0 200 OK");
         $result = $this->model->loginUser($data);
-        return 1;
+        return $result;
 //        return $this->response->serverSuccess(200, $result);
     }
 

@@ -27,8 +27,9 @@ class RestServer
                 break;
             case 'OPTIONS':
                 header('Access-Control-Allow-Methods: PUT');
+                header('Access-Control-Allow-Headers: *');
                 header('Access-Control-Allow-Origin: *');
-                //header("HTTP/1.0 200 OK");
+                header("HTTP/1.0 200 OK");
                 exit();
                 break;
         }
@@ -105,8 +106,9 @@ class RestServer
         }
         elseif ($this->reqMethod == 'PUT')
         {
-            parse_str(file_get_contents("php://input"), $putParams);
-            $this->data = $putParams;
+//            parse_str(file_get_contents("php://input"), $putParams);
+//            $this->data = $putParams;
+            $this->data = json_decode(file_get_contents("php://input"), true);
             return $this->data;
         }
     }

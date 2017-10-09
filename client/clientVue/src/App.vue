@@ -16,7 +16,8 @@ export default {
         test: '',
         errors: [],
         config: {
-          headers: {'Content-Type': 'image/png; application/x-www-form-urlencoded'}
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'
+          }
         },
     }
   },
@@ -34,7 +35,7 @@ export default {
       // testPost: function()
       // {
       //   var data = new FormData();
-      //   data.append('login', 'dd');
+      //   data.append('login', 'aaaaaa');
       //   data.append('pass', '123456');
       //   axios.post('http://rest/user6/rest_task1/client/api/users/', data, this.config)
       //   .then(function (response) {
@@ -46,10 +47,10 @@ export default {
       // },
       testPut: function()
       {
-        var data = new FormData();
-        data.append('login', 'dddddd');
-        data.append('pass', '123456');
-        axios.put('http://rest/user6/rest_task1/client/api/users/', data)
+        axios.put('http://rest/user6/rest_task1/client/api/users/', {
+          login: 'dddddd',
+          pass: '123456'
+        }, this.config)
         .then(function (response) {
           console.log(response);
         })
@@ -57,14 +58,32 @@ export default {
           console.log(error);
         });
       }
-      // testPut(){
-      //   axios.put('http://rest/user6/rest_task1/client/api/users/',{
-      //     login: 'zalupaKony'
-      //   })
-      //   .then(response => {})
-      //   .catch(e => {
-      //     this.errors.push(e)
-      //   })
+      // testPut: function()
+      // {
+      //   var body = "login="+'dddddd'+'&pass=' + 'sdfssdfsdf'
+      //   // var user = 'USER'
+      //   // var pass = 'PASS'
+        
+      //   var xhr = new XMLHttpRequest();
+      //   xhr.open('PUT', 'http://rest/user6/rest_task1/client/api/users/', true)
+      //   // xhr.open('PUT', 'http://rest/user6/rest_task1/client/api/users/', true, user, password)
+      //   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+      //   xhr.send(body)
+      //   xhr.onreadystatechange = function()
+      //   {
+      //     if (xhr.readyState != 4)
+      //     {
+      //         return 5
+      //     }
+      //     if (xhr.status != 200)
+      //     {
+      //         return 6
+      //     }
+      //     else
+      //     {
+      //         console.log(JSON.stringify(xhr.response))
+      //     }
+      //   }
       // }
   },
   created(){
