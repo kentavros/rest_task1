@@ -53,12 +53,12 @@ class ModelUsers
      */
     public function loginUser($param)
     {
-        file_put_contents('tempp.txt', print_r($param, true));
-//        header('Access-Control-Allow-Headers: *');
+        //file_put_contents('tempp.txt', print_r($param, true));
+        //header('Access-Control-Allow-Headers: *');
         setcookie("id", 1, time()+60*60*24*30);
         setcookie("hash", 2, time()+60*60*24*30);
-        header('Access-Control-Allow-Origin: *');
-        header("HTTP/1.0 200 OK");
+        //header('Access-Control-Allow-Origin: *');
+        //header("HTTP/1.0 200 OK");
         return $param;
 
 //        $pass = md5(md5(trim($param['pass'])));

@@ -11,6 +11,9 @@ class RestServer
     {    
         $this->url = $_SERVER['REQUEST_URI'];
         $this->reqMethod = $_SERVER['REQUEST_METHOD'];
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: PUT, POST, GET, DELETE');
+        header('Access-Control-Allow-Headers: Authorization, Content-Type');
         switch ($this->reqMethod)
         {
             case 'GET':
@@ -26,10 +29,10 @@ class RestServer
                 $this->setMethod('delete'.ucfirst($this->getClass()), $this->getData());
                 break;
             case 'OPTIONS':
-                header('Access-Control-Allow-Methods: PUT');
-                header('Access-Control-Allow-Headers: *');
-                header('Access-Control-Allow-Origin: *');
-                header("HTTP/1.0 200 OK");
+               // header('Access-Control-Allow-Methods: PUT');
+               // header('Access-Control-Allow-Headers: *');
+               // header('Access-Control-Allow-Origin: *');
+               // header("HTTP/1.0 200 OK");
                 exit();
                 break;
         }
@@ -43,8 +46,11 @@ class RestServer
         }
         else
         {
-            header('Access-Control-Allow-Origin: *');
-            header("HTTP/1.0 405 Method Not Allowed");
+            //header('Access-Control-Allow-Origin: *');
+            //header("HTTP/1.0 405 Method Not Allowed");
+            echo $this->class;
+            //var_dump($this->data);
+            //echo 'delete'.ucfirst($this->getClass());
         }
     }
 

@@ -57,10 +57,12 @@ class Users extends RestServer
      * Logout user
      * @return bool
      */
-    public function deleteUsers()
+    public function deleteUsers($data)
     {
-        $result = $this->model->logoutUser();
-        return $result;
+
+        //$result = $this->model->logoutUser();
+        $data = 5;
+        return $data;
     }
 }
 $cars = new Users();
