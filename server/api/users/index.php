@@ -61,7 +61,7 @@ class Users extends RestServer
     {
 
         //$result = $this->model->logoutUser();
-        $data = 5;
+        $data = 15;
         return $data;
     }
 }

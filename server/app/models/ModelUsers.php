@@ -53,7 +53,7 @@ class ModelUsers
      */
     public function loginUser($param)
     {
-        //file_put_contents('tempp.txt', print_r($param, true));
+        file_put_contents('tempp.txt', print_r($param, true));
         //header('Access-Control-Allow-Headers: *');
         setcookie("id", 1, time()+60*60*24*30);
         setcookie("hash", 2, time()+60*60*24*30);

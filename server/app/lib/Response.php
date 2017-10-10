@@ -26,7 +26,7 @@ class Response
     public function serverSuccess($type, $msg=null)
     {
         $responseHeader = $this->serverOKType();
-        header('Access-Control-Allow-Origin: *');
+        //header('Access-Control-Allow-Origin: *');
         header($responseHeader[$type]);
         return $msg;
     }
