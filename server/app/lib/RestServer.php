@@ -49,7 +49,7 @@ class RestServer
             //header('Access-Control-Allow-Origin: *');
             //header("HTTP/1.0 405 Method Not Allowed");
             echo $this->class.'ERROR';
-            //var_dump($this->data);
+            var_dump($this->data);
             //echo 'delete'.ucfirst($this->getClass());
         }
     }

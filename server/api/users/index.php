@@ -21,10 +21,12 @@ class Users extends RestServer
      * Check auth user - isset cookie id and hash
      * @return bool
      */
-    public function getUsers()
+    public function getUsers($data=null)
     {
-        $result = $this->model->checkUsers();
-        return $result;
+       $result = $this->model->checkUsers($data);
+      // $result = $this->encodedData($result);    
+       return $this->response->serverSuccess(200, $result);
+        
     }
 
     /**
@@ -34,8 +36,8 @@ class Users extends RestServer
      */
     public function postUsers($data)
     {
-            $result = $this->model->addUser($data);
-            return $this->response->serverSuccess(200, $result);
+           $result = $this->model->addUser($data);
+           return $this->response->serverSuccess(200, $result);
     }
 
     /**
@@ -48,9 +50,8 @@ class Users extends RestServer
 
 //        header('Access-Control-Allow-Origin: *');
 //        header("HTTP/1.0 200 OK");
-        $result = $this->model->loginUser($data);
-        return $result;
-//        return $this->response->serverSuccess(200, $result);
+        $result = $this->model->loginUser($data); 
+        return $this->response->serverSuccess(200, $result);
     }
 
     /**
