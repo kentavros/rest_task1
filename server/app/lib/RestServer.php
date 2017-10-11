@@ -5,7 +5,7 @@ class RestServer
     protected $url;
     protected $class;
     protected $data;
-    protected $encode;
+    protected $encode = ENCODE_DEFAULT;
 
     protected function run()
     {    
@@ -75,7 +75,11 @@ class RestServer
             $data = $clearUrl[count($clearUrl) - 1];
             //Get encode type
             preg_match('#(\.[a-z]+)#', $data, $match);
-            $this->encode = $match[0];
+            if (!empty($match[0]))
+            {
+                 $this->encode = $match[0];
+            }
+               // $this->encode = $match[0];
             //Cut extension
             $data = trim($data, $this->encode);
             $data = explode('/', $data);
@@ -131,52 +135,39 @@ class RestServer
                 header("Content-type: text/javascript");
                 print_r($data);
                 break;
-            case '.html':
+            case '.xhtml':
                 header('Content-Type: text/html; charset=utf-8');
-                $str = '<head></head>';
-                $str .= '<body>';
-                if (count($data,1) != count($data))
-                {
-                    foreach ($data as $values)
-                    {
-                        foreach($values as $key => $val)
-                        {
-                            $str .= '<p>'.$key.' => '.$val.'</p>';
-                        }
-                        $str .= '</body>';
-                    }
-                }
-                else
-                {
-                    foreach($data as $key => $val)
-                    {
-                        $str .= '<p>'.$key.' => '.$val.'</p>';
-                    }
-                    $str .= '</body>';
-                }
+                $str = '<head></head><body><pre>';
+                $str .= print_r($data, true);
+                $str .= '</pre></body>';
                 return $str;
                 break;
             case '.xml':
                 header("Content-type: text/xml");
-                $xml = new SimpleXMLElement('<cars/>');
-                if (count($data,1) != count($data))
+                $xml = new SimpleXMLElement('<?xml version="1.0"?><data></data>');
+                $this->toXml($data, $xml);
+                return $xml->asXML();
+                break;
+        }
+    }
+
+    public function toXml($data, $xml)
+    {
+             foreach($data as $key=>$val)
+             {
+                if(is_numeric($key))
                 {
-                    foreach ($data as $car)
-                    {
-                        $data =  array_flip($car);
-                        array_walk_recursive($data, array ($xml, 'addChild'));
-                    }
+                    $key = 'car'.$key;
+                }
+                if(is_array($val))
+                {
+                    $subnode = $xml->addChild($key);
+                    $this->toXml($val, $subnode);
                 }
                 else
                 {
-                    $data = array_flip($data);
-                    array_walk_recursive($data, array($xml, 'addChild'));
+                    $xml->addChild("$key",htmlspecialchars("$val"));
                 }
-                return $xml->asXML();
-                break;
-            default:
-                header('Content-Type: application/json');
-                return json_encode($data);
-        }
+             }
     }
 }

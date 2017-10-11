@@ -1,5 +1,10 @@
 <?php
 /**
+ * ENCODE TYPE DEFAULT
+ */
+define('ENCODE_DEFAULT', '.json');
+
+/**
  * for Data Base MySQL
  */
 define('DSN_MY', 'mysql:host=localhost;dbname=user6');
