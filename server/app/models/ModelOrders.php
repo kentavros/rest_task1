@@ -17,24 +17,25 @@ class ModelOrders
 
     public function getOrders($param)
     {
-        //Uli polu4it' usera iz cookov.... xz poka
         if (empty($param['id']))
         {
             return false;
         }
         $id_user = $this->pdo->quote($param['id']);
-        $sql = "SELECT cars.id, cars.brand, cars.model, cars.price, orders.status".
+        $sql = "SELECT orders.id, cars.brand, cars.model, cars.price, orders.status".
             " FROM orders, cars WHERE orders.id_car=cars.id AND orders.id_user=".$id_user;
         $sth = $this->pdo->prepare($sql);
         $result = $sth->execute();
         if (false === $result)
         {
-            throw new PDOException(ERR_QUERY);
+//            throw new PDOException(ERR_QUERY);
+            return ERR_QUERY;
         }
         $data = $sth->fetchAll(PDO::FETCH_ASSOC);
         if (empty($data))
         {
-            throw new PDOException(ERR_SEARCH);
+//            throw new PDOException(ERR_SEARCH);
+            return ERR_SEARCH;
         }
         return $data;
     }
@@ -57,7 +58,8 @@ class ModelOrders
         $count = $this->pdo->exec($sql);
         if ($count === false)
         {
-            throw new PDOException(ERR_QUERY);
+//            throw new PDOException(ERR_QUERY);
+            return ERR_QUERY;
         }
         return $count;
     }
@@ -69,7 +71,7 @@ class ModelOrders
      */
     public function changeStatus($param)
     {
-        if (empty($param['id_car']) && empty($param['id_user']) && empty($param['status']))
+        if (empty($param['id']) && empty($param['status']))
         {
             return false;
         }
@@ -77,16 +79,10 @@ class ModelOrders
         {
             return false;
         }
-        $id_car = $this->pdo->quote($param['id_car']);
-        $id_user = $this->pdo->quote($param['id_user']);
+        $id = $this->pdo->quote($param['id']);
         $status = $this->pdo->quote($param['status']);
-        $sql = "UPDATE orders SET status=".$status." WHERE id_car=".$id_car." AND id_user=".$id_user;
+        $sql = "UPDATE orders SET status=".$status." WHERE id=".$id;
         $count = $this->pdo->exec($sql);
-        if ($count === false)
-        {
-            throw new PDOException(ERR_QUERY);
-        }
-        return true;
+        return $count;
     }
-
 }

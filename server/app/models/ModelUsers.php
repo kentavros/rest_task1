@@ -42,14 +42,6 @@ class ModelUsers
      */
     public function loginUser($param)
     {
-        //file_put_contents('tempp.txt', print_r($param, true));
-        //header('Access-Control-Allow-Headers: *');
-       // setcookie("id", 1, time()+60*60*24*30);
-       // setcookie("hash", 2, time()+60*60*24*30);
-        //header('Access-Control-Allow-Origin: *');
-        //header("HTTP/1.0 200 OK");
-        //return $param;
-
         $pass = md5(md5(trim($param['pass'])));
         $login = $this->pdo->quote($param['login']);
         $sql = "SELECT id, pass FROM users WHERE login=".$login;
@@ -91,11 +83,6 @@ class ModelUsers
         }
         $id = trim($id, "'");
         $hash = trim($hash, "'");
-//        header('Access-Control-Allow-Origin: *');
-//        header("HTTP/1.0 200 OK");
-//        setcookie("id", $id, time()+60*60*24*30);
-//        setcookie("hash", $hash, time()+60*60*24*30);
-//      //  header('Location: http://rest/user6/rest_task1/client/api/users/');
         $arrRes = ['id'=>$id, 'hash'=>$hash];
         return json_encode($arrRes);
     }

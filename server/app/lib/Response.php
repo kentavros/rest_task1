@@ -34,7 +34,7 @@ class Response
     public function serverError($errorType, $msg=null)
     {
         $responseHeader = $this->serverErrorType();
-        header('Access-Control-Allow-Origin: *');
+        //header('Access-Control-Allow-Origin: *');
         header($responseHeader[$errorType]);
         return $msg;
     }
@@ -42,7 +42,7 @@ class Response
     public function clientError($errorType, $msg)
     {
         $responseHeader = $this->clientErrorType();
-        header('Access-Control-Allow-Origin: *');
+        //header('Access-Control-Allow-Origin: *');
         header($responseHeader[$errorType]);
         return $msg;
     }

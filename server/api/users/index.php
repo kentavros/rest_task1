@@ -24,7 +24,6 @@ class Users extends RestServer
     public function getUsers($data=null)
     {
        $result = $this->model->checkUsers($data);
-      // $result = $this->encodedData($result);    
        return $this->response->serverSuccess(200, $result);
         
     }
@@ -41,15 +40,12 @@ class Users extends RestServer
     }
 
     /**
-     * Login user - add hash to db and set cookie id and hash
+     * Login user - add hash to db and
      * @param $data
      * @return bool
      */
     public function putUsers($data)
     {
-
-//        header('Access-Control-Allow-Origin: *');
-//        header("HTTP/1.0 200 OK");
         $result = $this->model->loginUser($data); 
         return $this->response->serverSuccess(200, $result);
     }
@@ -60,10 +56,7 @@ class Users extends RestServer
      */
     public function deleteUsers($data)
     {
-
-        //$result = $this->model->logoutUser();
-        $data = 15;
-        return $data;
+      //Было рассчитано на куки
     }
 }
 $cars = new Users();
